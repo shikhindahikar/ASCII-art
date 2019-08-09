@@ -8,14 +8,15 @@ from PIL import Image
 import numpy as p
 import math
 
-img=Image.open("F:/ASCII art/ascii-pineapple.jpg")
+print("Enter file path")
+s=str(input())
+img=Image.open(s)
 width, height=img.size
-width=str(width)
-height=str(height) 
-print("Image size:"+width+" "+height)
+width=int(width)
+height=int(height) 
+print("Image size: "+str(width)+"x"+str(height))
 pixel_matrix=p.asarray(img)
-print("Pixels are: ")
-bright_pix_mat=[[0]*700]*467
+bright_pix_mat=[[0]*width]*height
 i=0
 j=0
 for i in range(len(pixel_matrix)):
@@ -38,5 +39,8 @@ while (k <= 255) :
     
 for i in range(len(pixel_matrix)):
     for j in range(len(pixel_matrix[i])):
-        for k in range(3):
-            print(d[bright_pix_mat[i][j]], end='', file=open("output.txt", "a"))
+        print(d[bright_pix_mat[i][j]], end='', file=open("output.txt", "a"))
+        
+    
+    print('', file=open("output.txt", "a"))    
+print("done")
