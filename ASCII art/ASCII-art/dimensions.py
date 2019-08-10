@@ -16,7 +16,7 @@ width=int(width)
 height=int(height) 
 print("Image size: "+str(width)+"x"+str(height))
 pixel_matrix=p.asarray(img)         #made a pixel matrix of image, which is array of width x height with each element a tuple of size 3
-bright_pix_mat=[[0]*width]*height
+bright_pix_mat=[[0 for _ in range(width)] for _ in range(height)]
 i=0
 j=0
 for i in range(len(pixel_matrix)):
